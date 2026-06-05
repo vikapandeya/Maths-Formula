@@ -223,7 +223,7 @@
 
     .control-grid {
       margin: 18px 0 24px;
-      grid-template-columns: 2fr 1fr 1fr auto auto auto;
+      grid-template-columns: 2fr 1fr 1fr 1fr auto auto;
       align-items: stretch;
     }
 
@@ -613,6 +613,33 @@
       color: var(--muted);
     }
 
+    .lang-card {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 8px;
+    }
+
+    .lang-card .lang-label {
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+    }
+
+    .lang-buttons {
+      display: flex;
+      gap: 6px;
+      width: 100%;
+    }
+
+    .lang-buttons .btn {
+      flex: 1;
+      padding: 9px 10px;
+      font-size: 0.88rem;
+      text-align: center;
+    }
+
     .hinglish-note {
       margin-top: 8px;
       padding: 10px 12px;
@@ -776,8 +803,13 @@
             <option value="medium">Medium Yield</option>
           </select>
         </div>
-        <button class="btn lang-active" id="langEnglish" type="button">English</button>
-        <button class="btn" id="langHinglish" type="button">Hinglish</button>
+        <div class="control-card lang-card">
+          <span class="lang-label">🌐 भाषा / Language</span>
+          <div class="lang-buttons">
+            <button class="btn lang-active" id="langEnglish" type="button">🇬🇧 English</button>
+            <button class="btn" id="langHinglish" type="button">🇮🇳 हिंग्लिश</button>
+          </div>
+        </div>
         <button class="btn" id="toggleTheme" type="button">Dark Mode</button>
         <button class="btn primary" id="expandAll" type="button">Expand All</button>
       </section>
@@ -898,7 +930,31 @@
         solution: "Solution",
         practice: "Practice Questions",
         hinglishLabel: "Hinglish Teacher Note",
-        example: "Example"
+        example: "Example",
+        sec_topFormulas: "Top 100 Most Important Formulas",
+        sec_topFormulasDesc: "These are auto-collected from the chapter formula boxes below. Revise these first if exam time is near.",
+        sec_fastTricks: "Top 50 Fast Calculation Tricks",
+        sec_fastTricksDesc: "Use these for mental speed, option elimination, and approximation-heavy aptitude sets.",
+        sec_memorize: "Tables To Memorize",
+        sec_memorizeDesc: "High-return memory tables for speed tests and non-calculator exams.",
+        sec_lastDay: "Last Day Revision Sheet",
+        sec_lastDayDesc: "What to revise in the final round before SSC, Railway, Banking, PCS, CET, CDS, or NDA math sections.",
+        sec_ultraFast: "One Page Ultra Fast Revision",
+        sec_ultraFastDesc: "One-line reminders for each chapter. Read this once before the exam hall.",
+        sec_examZones: "Exam Wise Formula Zones",
+        sec_examZonesDesc: "Targeted formula clusters repeatedly seen in SSC CGL, Railway, and Banking aptitude papers.",
+        sec_allTopics: "All Topic Capsules",
+        sec_allTopicsDesc: "Expand each chapter for formulas, shortcuts, mistakes, examples, and practice sets.",
+        footerNote: "In competitive mathematics, speed comes from pattern recognition, not from long calculation. Revise tables daily, memorize conversion formulas, and always ask: can this be solved by ratio, remainder, approximation, unit digit, or option elimination?",
+        footerLabel: "Final Teacher Note",
+        stat_highYield: "High Yield Areas",
+        stat_highYieldVal: "Percentage, Ratio, Profit & Loss, Time & Work, Mensuration, Trigonometry, Algebra",
+        stat_pattern: "Most Repeated Pattern",
+        stat_patternVal: "Direct formula use + shortcut conversion + one hidden condition",
+        stat_strategy: "Best Strategy",
+        stat_strategyVal: "First master tables, then core formulas, then chapter-wise patterns",
+        stat_lastMin: "Last Minute Rule",
+        stat_lastMinVal: "If calculation is long, check ratio, options, unit digit, or approximation"
       },
       hinglish: {
         searchLabel: "Khojo",
@@ -909,25 +965,49 @@
         lightMode: "Light Mode",
         expandAll: "Sab Khol Do",
         collapseAll: "Sab Band Karo",
-        topicIntro: "Topic Intro",
+        topicIntro: "Topic Ka Introduction",
         difficultyLevel: "Difficulty Level",
-        expectedWeightage: "Expected Weightage",
+        expectedWeightage: "Exam Mein Kitna Aata Hai",
         memoryHook: "Yaad Rakhne Ki Trick",
-        importantConcepts: "🔥 Important Concepts",
+        importantConcepts: "🔥 Zaruri Concepts",
         shortcutTricks: "⚡ Shortcut Tricks",
         examTricks: "✅ Exam Tricks",
-        commonMistakes: "❌ Common Mistakes",
-        memoryTrick: "🧠 Memory Trick",
-        patterns: "🔥 Previous Year Patterns",
+        commonMistakes: "❌ Common Galtiyan",
+        memoryTrick: "🧠 Yaad Rakhne Ka Tarika",
+        patterns: "🔥 Pehle Aayi Patterns",
         formula: "📌 Formula",
         meaning: "Matlab",
         shortcut: "⚡ Shortcut",
         examTip: "✅ Exam Tip",
         question: "Sawal",
         solution: "Hal",
-        practice: "Practice Questions",
-        hinglishLabel: "Hinglish Teacher Note",
-        example: "Example"
+        practice: "Practice Ke Sawal",
+        hinglishLabel: "Teacher Ki Baat (Hinglish Mein)",
+        example: "Udaaharan",
+        sec_topFormulas: "Top 100 Sabse Zaroori Formulas",
+        sec_topFormulasDesc: "Ye formulas neeche ke chapters se liye gaye hain. Agar exam ka time kam ho toh pehle inhe hi revise karo.",
+        sec_fastTricks: "Top 50 Fast Calculation Tricks",
+        sec_fastTricksDesc: "Ye tricks mental speed, option eliminate karne, aur approximation-heavy questions ke liye hain.",
+        sec_memorize: "Yaad Karne Wali Tables",
+        sec_memorizeDesc: "Speed tests aur bina calculator ke exams ke liye high-return memory tables.",
+        sec_lastDay: "Exam Se Pehle Wali Din Ki Revision",
+        sec_lastDayDesc: "SSC, Railway, Banking, PCS, CET, CDS, ya NDA se pehle last round mein kya revise karna hai.",
+        sec_ultraFast: "Ek Page Ultra Fast Revision",
+        sec_ultraFastDesc: "Har chapter ke liye ek line ka reminder. Exam hall jaane se pehle ek baar padho.",
+        sec_examZones: "Exam Ke Hisaab Se Formula Zones",
+        sec_examZonesDesc: "SSC CGL, Railway, aur Banking aptitude papers mein baar-baar dikhne wale formula clusters.",
+        sec_allTopics: "Sabhi Topic Capsules",
+        sec_allTopicsDesc: "Har chapter ko formulas, shortcuts, galtiyan, examples, aur practice sets ke liye expand karo.",
+        footerNote: "Competitive maths mein speed lambi calculation se nahi, pattern pehchanne se aati hai. Rooz tables revise karo, conversion formulas yaad karo, aur hamesha poocho: kya ye ratio, remainder, approximation, unit digit, ya option elimination se solve ho sakta hai?",
+        footerLabel: "Teacher Ki Aakhri Baat",
+        stat_highYield: "High Yield Areas",
+        stat_highYieldVal: "Percentage, Ratio, Profit & Loss, Time & Work, Mensuration, Trigonometry, Algebra",
+        stat_pattern: "Sabse Baar-Baar Aane Wala Pattern",
+        stat_patternVal: "Direct formula use + shortcut conversion + ek hidden condition",
+        stat_strategy: "Sabse Achhi Strategy",
+        stat_strategyVal: "Pehle tables master karo, phir core formulas, phir chapter-wise patterns",
+        stat_lastMin: "Last Minute Rule",
+        stat_lastMinVal: "Agar calculation lambi ho, ratio, options, unit digit, ya approximation check karo"
       }
     };
 
@@ -2289,6 +2369,366 @@
       }
     ];
 
+    const hinglishData = {
+      "number-system": {
+        intro: "Number System maths ki basic language hai. Isme divisibility, HCF-LCM, remainders, cyclicity, aur unit digit questions hote hain. Yahan strong base aapka arithmetic aur algebra dono mein time bachata hai.",
+        memory: "3-9 ko sum se yaad karo, 4-8 ko tail se, 11 ko alternating sum se, aur unit digits ko cycle tables se.",
+        concepts: ["Prime factorization HCF, LCM, divisors, aur trailing-zero questions ke liye sabse fast tool hai.", "Remainder questions mein darasal modular arithmetic hoti hai. Powers ko cycle length se reduce karo."],
+        shortcuts: ["3 ya 9 se divisibility sirf digit sum par depend karti hai.", "4 se divisibility ke liye last 2 digits dekho; 8 ke liye last 3 digits.", "11 ke liye alternating digit sum nikalo aur 11 se check karo."],
+        examTricks: ["Agar options bahut alag hain, puri multiplication ki jagah prime factors use karo.", "Power wale questions mein pehle sirf last digit ya cycle nikalo, poori value nahi."],
+        mistakes: ["Sirf do numbers ke liye wala formula a x b = HCF x LCM teen ya zyada numbers par seedha galat hai.", "Remainder ko divisor ke barabar ya zyada likhna common galti hai."],
+        patterns: ["Koi chota number add ya subtract karo taaki doosra number se divisible ho jaye.", "Bade power ya product ka remainder chote divisor se nikalo."],
+        formulas: [{ meaning: "Do positive integers ke liye valid hai.", shortcut: "Agar HCF pata hai, LCM = (a x b) / HCF.", examTip: "SSC aur Railway ke pair-based questions mein bahut common hai." }, { meaning: "0 <= Remainder < Divisor hona chahiye.", shortcut: "Is formula se statement-based problems equations mein convert karo.", examTip: "Remainder aur least number questions mein poocha jaata hai." }, { meaning: "Tab use karo jab numbers fractional hon.", shortcut: "Numerator aur denominator ka kaam alag-alag karo.", examTip: "Concept-based objective questions mein useful hai." }, { meaning: "Cycle length hamesha 4 hoti hai, siwaay 0,1,5,6 ke.", shortcut: "Power ko cycle length se modulo karo.", examTip: "SSC CHSL, GD, MTS, aur Railway mein baar-baar aata hai." }]
+      },
+      "simplification": {
+        intro: "Simplification mein speed, operation order, fraction handling, surds, aur indices test hote hain. BODMAS aur standard algebraic reductions clear hon toh ye easy marks hain.",
+        memory: "Conjugate ka matlab same terms, opposite sign; powers multiply hone par add hote hain aur divide hone par subtract.",
+        concepts: ["Hamesha brackets, powers, division, multiplication, addition, subtraction is order mein solve karo.", "Surds rationalization aur factor extraction ke baad easy ho jaate hain."],
+        shortcuts: ["Fractions multiply karne se pehle common factors cancel karo.", "Mixed operations mein decimals ko fractions mein convert karo agar mentally easier ho.", "(a+b)^2 jaise identities use karo lambi multiplication se bachne ke liye."],
+        examTricks: ["Agar expression mushkil lage, pehle sign aur size estimate karo aur options eliminate karo.", "Jab square roots dikhein, check karo ki terms perfect-square pattern toh nahi bana rahi."],
+        mistakes: ["Division ya multiplication se pehle addition karna galat hai.", "Unlike radicands wale square roots ko directly add karna."],
+        patterns: ["Fractions aur decimals ke saath nested brackets.", "Rationalization ke saath surd simplification."],
+        formulas: [{ meaning: "Ye operations ka order hai.", shortcut: "Brackets ke andar se bahar ki taraf solve karo.", examTip: "Direct simplification sets mein common hai." }, { meaning: "Base same ho toh powers directly manage karo.", shortcut: "Zaroorat pade toh roots ko fractional powers mein convert karo.", examTip: "Simplification aur algebra dono mein use hota hai." }, { meaning: "Non-negative a aur b ke liye valid hai.", shortcut: "Pehle perfect squares bahar nikalo.", examTip: "SSC mein quick surd reduction baar-baar poocha jaata hai." }, { meaning: "Conjugate se multiply karo.", shortcut: "Numerator aur denominator mein opposite sign use karo.", examTip: "Theory-based aptitude mein bahut common hai." }]
+      },
+      "percentage": {
+        intro: "Percentage seedha profit-loss, SI-CI, DI, ratio, aur mixture se connected hai. Ye arithmetic ke sabse zyada value wale chapters mein se ek hai.",
+        memory: "Increase se multiplier add hota hai; decrease se ghata hai; successive percentages kabhi simple addition se combine nahi hote.",
+        concepts: ["Percentage 100 ka hissa hai. Fraction, decimal, aur percent ke beech quickly convert karo.", "Successive changes multiplicative hote hain, additive nahi."],
+        shortcuts: ["Kisi number ka 1% matlab decimal do jagah left shift karo.", "12.5% ke liye 8 se divide karo; 16 2/3% ke liye 6 se; 33 1/3% ke liye 3 se.", "Fraction forms use karo: 25% = 1/4, 40% = 2/5, 75% = 3/4."],
+        examTricks: ["Agar options close hain, step-by-step ki jagah net multiplier compute karo.", "Comparison questions mein difference% = difference/base x 100. Base matter karta hai."],
+        mistakes: ["Galat base par percentage change lena.", "Successive changes ko directly add karna."],
+        patterns: ["Do saalon mein population increase-decrease.", "Final amount aur percentage change ke baad original amount nikalna."],
+        formulas: [{ meaning: "Note karo: x% of y = y% of x bhi hota hai.", shortcut: "Agar ek multiplication easier ho toh values swap karo.", examTip: "Mental math shortcuts mein bahut common hai." }, { meaning: "Increase ke liye + use karo, decrease ke liye -.", shortcut: "10% increase matlab 1.10 se multiply karo.", examTip: "Salary, price, population questions mein poocha jaata hai." }, { meaning: "Signs ke saath dhyan se use karo; decrease negative hota hai.", shortcut: "20% increase phir 10% decrease = 20 - 10 - 2 = 8% increase.", examTip: "Banking aur SSC mein common hai." }, { meaning: "Jab change ke baad final value diya ho tab use karo.", shortcut: "Hamesha multiplier reverse karo.", examTip: "Discount aur salary problems mein baar-baar poocha jaata hai." }]
+      },
+      "ratio-proportion": {
+        intro: "Ratio aur proportion comparison, quantities ki division, partnership, aur mixtures ke questions ke liye aata hai. Ye arithmetic reasoning ka backbone chapter hai.",
+        memory: "Direct matlab same direction, inverse matlab opposite direction, partnership matlab capital x time.",
+        concepts: ["Ratio like quantities compare karta hai; proportion do ratios ki equality batata hai.", "Direct proportion mein dono saath chalte hain; inverse mein ek badhta hai toh doosra ghatta hai."],
+        shortcuts: ["Agar same amount add karne se ratio change ho, ratios ko equations mein jaldi convert karo.", "Direct proportion ke liye x1/y1 = x2/y2; inverse ke liye x1y1 = x2y2.", "Partnership mein ek choti table banao: person, capital, time, product."],
+        examTricks: ["Equal additions ya subtractions aksar ratio questions ko linear equations mein badal dete hain.", "Jab sirf ratio chahiye, actual total nikalne se bacho."],
+        mistakes: ["Partnership questions mein time ignore karna.", "Conversion ke bina unlike units ke beech ratio use karna."],
+        patterns: ["Kuch change ke baad given ratio mein amount divide karo.", "Workers, men-days, aur money shares compare karo."],
+        formulas: [{ meaning: "Dono terms ko same non-zero value se multiply ya divide karne se ratio same rehta hai.", shortcut: "Pehle ratio lowest terms mein reduce karo.", examTip: "Age, speed, mixture, aur partnership mein use hota hai." }, { meaning: "Extremes ka product = means ka product.", shortcut: "Seedha cross multiply karo.", examTip: "Direct aptitude formula hai." }, { meaning: "Money, age, partnership, marks ke liye use hota hai.", shortcut: "Pehle ek part nikalo = T/(m+n).", examTip: "SSC aur Banking mein bahut common hai." }, { meaning: "Capital-months ya capital-years compare karo.", shortcut: "Sabhi investment periods ko same unit mein convert karo.", examTip: "Arithmetic sets mein high repeat pattern hai." }]
+      },
+      "average": {
+        intro: "Average ke questions short, scoring, aur aksar ages, marks, salary, aur data interpretation ke saath mixed hote hain.",
+        memory: "Average matlab fair share; average se koi bhi extra ya deficit total deviation zero par balance karta hai.",
+        concepts: ["Average ek balancing value hai: total quantity ko items ki sankhya se divide karo.", "Replacement ya inclusion questions total change se solve hote hain, sab kuch recompute karne se nahi."],
+        shortcuts: ["Consecutive numbers mein average middle number hota hai.", "Equally spaced numbers ka average = pehle aur aakhri ka average.", "Agar naya item aaye, naya total = purana total + naya item."],
+        examTricks: ["Average change wale age questions usually total-change questions hote hain.", "Jab sequence regular ho toh sabhi numbers list karne se bacho."],
+        mistakes: ["Galat total ke saath naya count use karna.", "Replacement ke liye ek purani value jaati hai, ye bhool jaana."],
+        patterns: ["Teacher ke join ya leave hone se pehle aur baad ka average.", "Boys aur girls ka combined average marks."],
+        formulas: [{ meaning: "Core definition hai.", shortcut: "Agar count aur average pata hai, total = average x count.", examTip: "Basic direct question type hai." }, { meaning: "Jab do groups merge hon tab use karo.", shortcut: "Total marks ya total age soch lo.", examTip: "Class, team, aur salary sets mein common hai." }, { meaning: "Jab ek item replace ho tab apply hota hai.", shortcut: "Average shift se total shift pata chalta hai.", examTip: "SSC is pattern ko pasand karta hai." }, { meaning: "w matlab frequency ya weight.", shortcut: "DI aur mixture-jaise values mein useful hai.", examTip: "Banking aur statistics crossover." }]
+      },
+      "profit-loss": {
+        intro: "Profit aur Loss sabse zyada poochhe jaane waale commercial math chapters mein se ek hai. Ye percentage, discount, marked price, false weights, aur successive changes se juda hai.",
+        memory: "Profit-loss CP par, discount MP par, aur net discount successive percentage rule follow karta hai.",
+        concepts: ["Profit ya loss hamesha cost price par calculate hota hai, jab tak question kuch aur na kahe.", "Marked price aur selling price mein discount ka fark hota hai; cost price aur selling price profit ya loss decide karte hain."],
+        shortcuts: ["Jab gain% aur loss% chote hon, seedhe multipliers 1.1, 0.9, 1.25 etc. use karo.", "Dishonest dealer questions mein true quantity / false quantity use hota hai.", "Agar SPs same hain, CP comparison ke liye ratio method use karo."],
+        examTricks: ["Marked price-discount-profit chains ko fractions ya multipliers mein solve karo.", "Agar options objective hain, jahan convenient ho CP = 100 lo."],
+        mistakes: ["Profit percent CP ki jagah SP par calculate karna.", "Successive discounts ko directly add karna."],
+        patterns: ["Desired profit aur given discount ke baad marked price nikalna.", "False weights use karne wala dishonest shopkeeper."],
+        formulas: [{ meaning: "CP base hai.", shortcut: "Hamesha poocho: base kya hai?", examTip: "Sabse common direct formula hai." }, { meaning: "Profit ke liye + use karo, loss ke liye -.", shortcut: "20% profit matlab SP = 1.2 CP.", examTip: "Reverse questions mein bhi useful hai." }, { meaning: "MP matlab marked price.", shortcut: "Discount profit decide nahi karta jab tak CP pata na ho.", examTip: "SSC aur Railway mein ye baar-baar aata hai." }, { meaning: "Successive percentage decrease jaisa hi kaam karta hai.", shortcut: "20% aur 10% ke do discounts 28% dete hain, 30% nahi.", examTip: "Banking aptitude mein favourite hai." }]
+      },
+      "simple-interest": {
+        intro: "Simple Interest formula-driven aur score karne mein aasaan hai. Questions aksar principal, rate, time, amount, ya do schemes ke beech comparison poochte hain.",
+        memory: "SI linear rehta hai kyunki interest hamesha original principal par hi lagta hai.",
+        concepts: ["SI mein interest hamesha sirf original principal par lagta hai.", "Months ko years mein convert karo jab tak rate per month na diya ho."],
+        shortcuts: ["8% par 5 saal ke liye, SI = principal ka 40%.", "Agar amount aur principal diya hai, interest = amount - principal.", "Mahino ke liye T = months/12 use karo."],
+        examTricks: ["Bahut saare SI questions poori formula ki jagah percentage se solve ho sakte hain.", "Agar alag principals par barabar time mein interest same hai, rates inversely compare karo."],
+        mistakes: ["SI questions mein compound growth formula use karna.", "Months ko year fraction mein convert na karna."],
+        patterns: ["Amount, rate, aur time dene par principal nikalna.", "Alag rates par do sums par SI compare karna."],
+        formulas: [{ meaning: "P = principal, R = annual rate, T = years mein time.", shortcut: "Jab P = 100 ho, SI = RT seedha.", examTip: "Classic direct question hai." }, { meaning: "End mein total paisa.", shortcut: "Pehle SI compute karo, phir principal add karo.", examTip: "Aksar reverse questions mein use hota hai." }, { meaning: "SI formula ka reverse hai.", shortcut: "Cleanly cross multiply karo.", examTip: "Jab interest, rate, time diya ho tab useful hai." }, { meaning: "Direct rearrangement hai.", shortcut: "Units consistent rakho.", examTip: "Objective exams mein easy marks hain." }]
+      },
+      "compound-interest": {
+        intro: "Compound Interest SI se thoda heavy hai lekin formula-friendly hai. Ye Banking aptitude aur mixed commercial math questions mein aksar aata hai.",
+        memory: "CI interest par interest compound karta hai; SI nahi karta.",
+        concepts: ["CI mein har period ka interest agale period ke liye principal mein add ho jaata hai.", "Annual, half-yearly, aur quarterly compounding clearly samjho."],
+        shortcuts: ["Chote integer rates ke liye multipliers se expand karo, baar-baar formula likhne ki zaroorat nahi.", "2-year questions mein pehle SI aur CI ka difference compare karo.", "Jab amount ratio diya ho, compound multiplier ratio use karo."],
+        examTricks: ["Solve karne se pehle check karo compounding frequency badli toh nahi hai.", "Agar options objective hain, powers ko smartly approximate karo."],
+        mistakes: ["Half-yearly ya quarterly conditions ke liye R/100 aur n adjust kiye bina use karna.", "Amount ko interest se confuse karna."],
+        patterns: ["2 saalon ke liye SI aur CI ka fark.", "Half-yearly compounding ke under amount nikalna."],
+        formulas: [{ meaning: "Annual compounding.", shortcut: "Growth factor seedha use karo.", examTip: "Core CI formula hai." }, { meaning: "Interest = final amount minus principal.", shortcut: "Kabhi kabhi sirf amount chahiye hota hai.", examTip: "Seedha aur indirectly dono poochha jaata hai." }, { meaning: "Rate half hoti hai, periods double hote hain.", shortcut: "Quarterly matlab R/400 aur 4n periods.", examTip: "Banking ka favourite pattern hai." }, { meaning: "Sirf 2-year annual compounding ke liye.", shortcut: "Chote conceptual questions ke liye bahut quick hai.", examTip: "SSC ko ye shortcut bahut pasand hai." }]
+      },
+      "time-work": {
+        intro: "Time aur Work sabse important aptitude chapters mein se ek hai. Ye efficiency, work rates, aur unit work par based hai.",
+        memory: "Kaam efficiency aur time ke saath jaata hai; time efficiency ke opposite jaata hai.",
+        concepts: ["Agar koi kaam x din mein karta hai, ek din ka kaam = 1/x.", "Zyada efficient worker kam time leta hai; efficiency time ki inverse hoti hai."],
+        shortcuts: ["Fractions se bachne ke liye total kaam ko individual days ka LCM lo.", "Agar A ki efficiency B se double hai, A:B time ratio = 1:2.", "Alternate work ke liye din-by-din sirf tab tak compute karo jab tak pattern repeat na ho."],
+        examTricks: ["Check karo ki question efficiency ratio se zyada easy toh nahi hai direct fraction addition se.", "Kaam par based wages mein wages kaam ke proportional hote hain."],
+        mistakes: ["Rates ki jagah din seedhe add karna.", "Time ke ratio ko efficiencies ke ratio se confuse karna."],
+        patterns: ["Do workers saath, phir kuch din baad ek chala jaata hai.", "Men, women, aur children equivalent work rates."],
+        formulas: [{ meaning: "Rate matlab work per unit time.", shortcut: "Jab convenient ho total work ko days ka LCM assume karo.", examTip: "Pore chapter ki foundation hai." }, { meaning: "T combined time hai.", shortcut: "Quick manual solving ke liye LCM method use karo.", examTip: "Direct recurring pattern hai." }, { meaning: "Efficiency aur time inversely proportional hain.", shortcut: "Zyada speed matlab kam time.", examTip: "Worker comparisons mein baar-baar use hota hai." }, { meaning: "Variable labour questions mein use karo.", shortcut: "Sirf changing factors ko proportional form mein rakho.", examTip: "Workforce scheduling questions mein use hota hai." }]
+      },
+      "pipe-cistern": {
+        intro: "Pipe aur Cistern bilkul Time aur Work jaisa hai lekin water flow ke saath. Filling pipes positive rates hain aur leak ya outlet pipes negative rates hain.",
+        memory: "Inlet add karta hai, outlet subtract karta hai, aur net rate direction decide karta hai.",
+        concepts: ["Ek pipe jo x hours mein tank fill kare uski rate 1/x hoti hai.", "Outlet ya leak inlet rate se subtract karta hai."],
+        shortcuts: ["Quick integer calculations ke liye tank capacity ko times ka LCM lo.", "Agar baad mein leak khule, pehle ka aur baad ka filled amount alag-alag solve karo.", "Jab net rate negative ho jaaye, tank fill hone ki jagah empty ho jaata hai."],
+        examTricks: ["Koi bhi arithmetic karne se pehle ek line mein plus aur minus signs ke saath rates likho.", "Agar question mein half-filled tank mention ho, sirf remaining fraction par kaam karo."],
+        mistakes: ["Outlet rate ko subtract karne ki jagah add karna.", "Pehle phase ke baad total tank ki jagah remaining tank use karna."],
+        patterns: ["Ek pipe kuch delay ke baad khulti hai.", "Leak se total filling efficiency kam hoti hai."],
+        formulas: [{ meaning: "Work rate jaisa hi idea hai.", shortcut: "Jab easy ho total tank volume LCM lo.", examTip: "Sabhi questions ke liye base formula hai." }, { meaning: "Filling ke liye positive, emptying ke liye negative.", shortcut: "Sign discipline se errors avoid hoti hain.", examTip: "Mixed inlet-outlet questions mein common hai." }, { meaning: "Net rate pata hone ke baad.", shortcut: "Fractional rates ko common denominator mein rakho.", examTip: "Direct aptitude pattern hai." }, { meaning: "Agar pipes alag-alag times par open aur close hon tab segment-wise use karo.", shortcut: "Timeline ko phases mein tod lo.", examTip: "SSC mein baar-baar poocha jaata hai." }]
+      },
+      "time-speed-distance": {
+        intro: "Ye chapter motion basics cover karta hai aur trains, boats, races, aur circular track questions support karta hai. Conversion aur average speed mein accuracy bahut matter karti hai.",
+        memory: "DST triangle: distance upar, speed aur time neeche.",
+        concepts: ["Distance, speed, aur time ek simple formula triangle se directly jude hain.", "Average speed total distance aur total time par depend karta hai, arithmetic average par nahi jab tak times equal na hon."],
+        shortcuts: ["Equal distances ke liye kabhi bhi speeds ka simple average use mat karo.", "Agar time minutes mein hai zaroorat ke hisaab se hours ya seconds mein convert karo.", "Jab relative motion ho closing speed soch lo."],
+        examTricks: ["Word problems mein solve karne se pehle sabhi units likho.", "Jab distance fixed ho, speed ratio aur time ratio invert ho jaate hain."],
+        mistakes: ["Weighted ya total average speed ki jagah simple average use karna.", "Unit conversion ignore karna."],
+        patterns: ["Up-down ya onward-return travel ke liye average speed.", "Chase aur crossing problems mein relative speed."],
+        formulas: [{ meaning: "Isliye Speed = Distance/Time aur Time = Distance/Speed.", shortcut: "Pehle unit consistency use karo.", examTip: "Sabse direct aptitude formula hai." }, { meaning: "Sabse important speed conversion.", shortcut: "m/s se km/h convert karne ke liye 18/5 se multiply karo.", examTip: "Train aur race problems mein baar-baar use hota hai." }, { meaning: "Sirf x aur y speeds par equal distances ke liye.", shortcut: "Harmonic mean shortcut.", examTip: "SSC aur Banking mein common hai." }, { meaning: "Trains, races, aur crossings mein use hota hai.", shortcut: "Closing speed matter karta hai, individual speed nahi.", examTip: "Bahut frequent pattern hai." }]
+      },
+      "trains": {
+        intro: "Train questions relative speed aur length ke applications hain. Ye Railway aur SSC exams mein popular hain kyunki motion plus unit conversion test karte hain.",
+        memory: "Pole matlab ek length, platform matlab added length, trains matlab dono train lengths add.",
+        concepts: ["Jab train pole cross kare woh sirf apni length cover karti hai.", "Jab train platform ya doosri train cross kare total covered length change hoti hai."],
+        shortcuts: ["Confusion se bachne ke liye sabhi train formulas mein meters aur seconds use karo.", "Agar train kisi insaan ko cross kare platform length aur person length dono zero hoti hain.", "Pole questions mein train length = speed x time."],
+        examTricks: ["Jaise hi 'completely passes' word aaye total length involved hai.", "Agar platform question same train ke liye do times deta hai, train ya platform length nikalne ke liye equations subtract karo."],
+        mistakes: ["km/h ko seedha length in meters ke saath use karna.", "Opposite-direction motion ke liye speed difference use karna."],
+        patterns: ["Ek train doosri ko opposite ya same direction mein cross karna.", "Crossing times se train length ya platform length nikalna."],
+        formulas: [{ meaning: "Same units use karo.", shortcut: "Pehle km/h ko m/s mein convert karo.", examTip: "Direct basic train question hai." }, { meaning: "Total obstruction length matter karti hai.", shortcut: "Pehle lengths add karo.", examTip: "Railway NTPC aur Group D mein bahut common hai." }, { meaning: "Relative speed sum hoti hai.", shortcut: "Total closing speed soch lo.", examTip: "Classic objective pattern hai." }, { meaning: "Relative speed difference hoti hai.", shortcut: "Badi speed minus choti speed.", examTip: "Chase-based train problem hai." }]
+      },
+      "boat-stream": {
+        intro: "Boat aur Stream paani par relative speed hai. Upstream slower hota hai, downstream faster, aur stream speed ko boat ki still-water speed se alag karna padta hai.",
+        memory: "Stream ke saath add karo, stream ke against subtract karo.",
+        concepts: ["Downstream speed = still water mein boat speed + stream speed.", "Upstream speed = still water mein boat speed - stream speed."],
+        shortcuts: ["Multi-step questions se pehle still-water speed aur stream speed nikalo.", "Same distance upstream aur downstream ke liye average speed = 2DU/(D+U).", "Upstream time ko downstream speed ke saath kabhi mix mat karo."],
+        examTricks: ["Agar same distance ke liye downstream aur upstream times diye hon, D aur U seedha derive karo.", "Stream speed approximate karne ke baad option elimination well work karta hai."],
+        mistakes: ["Speeds ki jagah times ka simple average lena.", "Still-water speed ko upstream speed ki jagah use karna."],
+        patterns: ["Diye gaye upstream-downstream data se boat speed aur stream speed nikalna.", "Same distance ke liye round-trip time nikalna."],
+        formulas: [{ meaning: "b = still-water speed, s = stream speed.", shortcut: "Stream ke saath add karo, stream ke against subtract karo.", examTip: "Sabse common direct formula hai." }, { meaning: "Downstream aur upstream speeds ka average.", shortcut: "Symmetry formula hai.", examTip: "Objective exams mein bahut fast hai." }, { meaning: "Aadha difference.", shortcut: "Difference do equal parts mein split hota hai.", examTip: "SSC mein baar-baar poocha jaata hai." }, { meaning: "Downstream ke liye D use karo, upstream ke liye U.", shortcut: "Direction alag rakho.", examTip: "Trip-based questions mein apply hota hai." }]
+      },
+      "mensuration-2d": {
+        intro: "Mensuration 2D ek direct-formula chapter hai. Zyaadatar questions common figures ke perimeter, area, diagonals, aur shaded regions ke baare mein hote hain.",
+        memory: "Square side squared, triangle half bh, circle pi r square, trapezium parallel sides ka average into height.",
+        concepts: ["Hamesha identify karo ki area, perimeter, side, radius, ya diagonal poocha gaya hai.", "Ek rough figure banao; dimensions label karne se bahut saari galtiyan khud hi door ho jaati hain."],
+        shortcuts: ["Pi = 22/7 tab use karo jab radius 7 ka multiple ho.", "Shaded regions ke liye chote area ko bade area se subtract karo.", "Rectangle diagonal mein aksar ek Pythagoras step chupi hoti hai."],
+        examTricks: ["Units dhyan se padho: cm, m, m^2 fast solvers ko trap kar sakti hain.", "Square-to-circle inscribed questions mein side aur diameter aksar barabar hote hain."],
+        mistakes: ["Circle area mein radius ki jagah diameter use karna.", "Trapezium ke liye sirf parallel sides ka average lena bhool jaana."],
+        patterns: ["Dimension change ke baad area comparison.", "Square aur circle ya rectangle aur semicircle ke beech shaded region."],
+        formulas: [{ meaning: "a = side, l = length, b = breadth.", shortcut: "Agar side double ho, square area 4 times ho jaati hai.", examTip: "SSC aur Railway mein bahut common hai." }, { meaning: "s = (a+b+c)/2.", shortcut: "Right triangle area = legs ka product / 2.", examTip: "Height-base aur semi-perimeter dono forms important hain." }, { meaning: "r = radius.", shortcut: "Agar radius double ho, area 4 times aur circumference 2 times ho jaati hai.", examTip: "SSC CGL, CHSL, NTPC mein baar-baar poocha jaata hai." }, { meaning: "d1,d2 diagonals hain; a,b parallel sides hain.", shortcut: "Trapezium area = parallel sides ka average x height.", examTip: "High-value direct formula questions hain." }]
+      },
+      "mensuration-3d": {
+        intro: "Mensuration 3D mein volume, curved surface area, total surface area, aur solids ki conversion poocha jaata hai. Core formulas yaad hon toh bahut scoring hai.",
+        memory: "Cube ke 6 faces, cylinder base into height, cone one-third cylinder, sphere four-third pi r cube.",
+        concepts: ["Volume cubic units mein hota hai; surface area square units mein.", "Dhyan se padho ki curved surface area ya total surface area chahiye."],
+        shortcuts: ["Jab liquid transfer involved ho, volumes barabar karo.", "Cone aur cylinder comparisons ke liye same base-height 1:3 volume ratio deta hai.", "TSA nikalne se pehle check karo solid open hai ya closed."],
+        examTricks: ["Pi = 22/7 sirf tab use karo jab simplify ho; warna end tak pi symbolic rakho.", "Conversion questions mein koi bhi arithmetic se pehle volume equation likho."],
+        mistakes: ["Volume ke liye vertical height ki jagah slant height use karna.", "Hemisphere TSA ke liye circular base area bhool jaana."],
+        patterns: ["Volume aur area data se radius ya height nikalna.", "Ek solid pighlao aur doosre mein dhalo."],
+        formulas: [{ meaning: "a = side.", shortcut: "Agar cube side double ho, volume 8 times ho jaata hai.", examTip: "Direct formula questions mein bahut frequent hai." }, { meaning: "r = radius, h = height.", shortcut: "Base circle area ko height mein multiply karna soch lo.", examTip: "SSC aur Railway regularly poochte hain." }, { meaning: "l = slant height = sqrt(r^2 + h^2).", shortcut: "Cone volume same base-height wale cylinder ka one-third hota hai.", examTip: "Comparison questions mein bahut useful hai." }, { meaning: "Hemisphere mein TSA mein base include hoti hai.", shortcut: "Sphere do hemispheres hain.", examTip: "3D mensuration sets mein popular hai." }]
+      },
+      "algebra": {
+        intro: "Competitive exams ke algebra chapters mein long proofs ki jagah identities, linear equations, aur quadratic equations par focus hota hai. Speed pattern recognition aur formula recall se aati hai.",
+        memory: "Sum ka square +2ab hota hai, difference ka square -2ab hota hai, aur quadratic roots b^2 - 4ac use karte hain.",
+        concepts: ["Zyaadatar objective questions identities, substitution, ya coefficient comparison par reduce ho jaate hain.", "Quadratic questions aksar roots, sum-product of roots, ya discriminant nature poochte hain."],
+        shortcuts: ["Convenient values sirf tab substitute karo jab question identity ya coefficient-independent ho.", "Agar factorization visible hai quadratic formula avoid karo.", "Symmetric expressions ke liye identities time bachati hain."],
+        examTricks: ["Perfect square trinomials aur difference of squares seedha dekho.", "Discriminant > 0 matlab distinct real roots, = 0 matlab equal roots."],
+        mistakes: ["-b ya discriminant mein galat sign.", "Product of roots ke liye a se divide karna bhool jaana."],
+        patterns: ["Lambi multiplication ke bina identity use karke expression evaluate karo.", "Coefficients se seedha roots ka sum ya product nikalo."],
+        formulas: [{ meaning: "Core algebra simplification tools hain.", shortcut: "Expansion se pehle identity use karo.", examTip: "Bahut baar test hota hai." }, { meaning: "Expression simplification mein use hota hai.", shortcut: "Sum ka square = squares ka sum + double products.", examTip: "SSC algebra mein common hai." }, { meaning: "a != 0.", shortcut: "Constant move karo phir coefficient se divide karo.", examTip: "Direct one-mark style question hai." }, { meaning: "ax^2 + bx + c = 0 ke liye.", shortcut: "Agar roots explicitly chahiye nahi, sum-product use karo.", examTip: "Sabse baar-baar aane wala algebra formula hai." }]
+      },
+      "geometry": {
+        intro: "Competitive geometry mein usually direct theorems, angle facts, triangle properties, aur circle rules test hote hain. Ek saaf diagram sabse bada shortcut hai.",
+        memory: "Tangent radius par 90° hoti hai, center angle circumference angle se double hota hai, triangle ka bahar wala angle andar ke do opposite angles ke barabar hota hai.",
+        concepts: ["Geometry formula memorization se zyada standard facts ke baare mein hai.", "Parallel lines, equal sides, aur radii clearly mark karo."],
+        shortcuts: ["Triangle mein agar do sides equal hain toh base angles equal hain.", "Jab parallel lines transversal ko kaate, alternate interior angles equal hote hain.", "Cyclic quadrilateral mein opposite angles supplementary hote hain."],
+        examTricks: ["Ek rough sketch aksar text padhne se zyada jaldi hidden equal angles reveal kar deta hai.", "Jab opposite angles ki sum 180° ho tab check karo ki quadrilateral cyclic hai ya nahi."],
+        mistakes: ["Yeh assume karna ki figure scale par draw ki gayi hai jab wo nahi hai.", "Similar triangles ke liye proportional sides ki jagah equal sides use karna."],
+        patterns: ["Triangle aur parallel line rules se missing angle nikalna.", "Circle theorem ya cyclic quadrilateral fact use karna."],
+        formulas: [{ meaning: "Core angle framework.", shortcut: "Polygon sum har extra side ke saath 180° badhti hai triangle se aage.", examTip: "Direct theory aur calculation questions." }, { meaning: "Line, triangle, aur mensuration problems mein use hota hai.", shortcut: "Figures ke andar chuppe right triangle dhundho.", examTip: "Bahut common hai." }, { meaning: "Circle basics.", shortcut: "Tangent hamesha contact point par radius par perpendicular hoti hai.", examTip: "Baar-baar repeat hone wala theorem hai." }, { meaning: "Height-distance aur geometry mixtures mein use hota hai.", shortcut: "Same shape, different size => similarity.", examTip: "Bahut saare indirect problems mein helpful hai." }]
+      },
+      "trigonometry": {
+        intro: "Competitive exams mein trigonometry mostly basic ratios, standard values, identities, aur heights-distances applications tak limited hai.",
+        memory: "SOH-CAH-TOA style: sin opposite/hypotenuse, cos adjacent/hypotenuse, tan opposite/adjacent.",
+        concepts: ["Right triangles mein trigonometric ratios ek angle ke respect mein sides compare karte hain.", "0°, 30°, 45°, 60°, aur 90° ke standard values yaad karne zarooori hain."],
+        shortcuts: ["Sin values 0° se 90° tak: sqrt(0/4), sqrt(1/4), sqrt(2/4), sqrt(3/4), sqrt(4/4).", "Cos values sin values ki reverse hoti hain 0° se 90° tak.", "Agar angle values standard hain calculator-style decimal work se bacho."],
+        examTricks: ["Zyaadatar exam questions sab kuch sin-cos ya tan-sec forms mein convert karne ke baad simplify ho jaate hain.", "Heights-distances mein agar opposite aur adjacent involved hain toh tan choose karo."],
+        mistakes: ["Angle reference fix kiye bina base aur perpendicular interchange karna.", "Galat standard value use karna khaaskar 30° aur 60° ke liye."],
+        patterns: ["Identities aur standard values use karke trig expression evaluate karo.", "Tan use karke tower height ya distance nikalna."],
+        formulas: [{ meaning: "P = perpendicular, B = base, H = hypotenuse.", shortcut: "Tan = sin/cos.", examTip: "Fundamental formula set hai." }, { meaning: "0°,30°,45°,60°,90° ke sabhi values yaad karo.", shortcut: "Pehle sin row seekho phir reverse karke cos lo.", examTip: "Exam trigonometry mein sabse zyada poocha jaane wala fact hai." }, { meaning: "Simplification mein use hota hai.", shortcut: "Square-pair identities main exam tools hain.", examTip: "Direct objective application hai." }, { meaning: "Elevation ya depression ka angle use karo.", shortcut: "Pehle ek right triangle draw karo.", examTip: "SSC mein aksar one-step height-distance problems poochhe jaate hain." }]
+      },
+      "coordinate-geometry": {
+        intro: "Aptitude mein coordinate geometry distance, section, slope, aur triangle area par focus karti hai. Zyaadatar questions standard formulas mein direct substitutions hain.",
+        memory: "Distance squared differences use karta hai, midpoint average use karta hai, section weighted average use karta hai.",
+        concepts: ["Points ko clearly (x, y) form mein represent karo aur substitution se pehle formula likho.", "Midpoint aur section formulas easy marks hain agar sign handling dhyan se ho."],
+        shortcuts: ["Vertical ya horizontal lines ke liye distance simple coordinate difference hoti hai.", "Slope = (y2-y1)/(x2-x1), aur equal slopes parallel lines imply karte hain.", "Midpoint questions aksar jaldi averaging tak reduce ho jaate hain."],
+        examTricks: ["Sign brackets dhyan se use karo; coordinate algebra errors common hain.", "Agar points collinear hain ya nahi poochha ho, area zero sabse fast hai."],
+        mistakes: ["Differences square karte waqt negative signs drop karna.", "Section formula mein galat order mein weights use karna."],
+        patterns: ["Do points ke beech distance ya midpoint nikalna.", "Area se collinearity check karna."],
+        formulas: [{ meaning: "Do points ke beech.", shortcut: "Pehle check karo horizontal ya vertical hai phir ek difference zero hogi.", examTip: "Sabse common coordinate formula hai." }, { meaning: "Exactly halfway wala point.", shortcut: "x average karo aur y average karo.", examTip: "Direct one-step question hai." }, { meaning: "Proportional division use karo.", shortcut: "Kareeb wala point opposite mein chota weight pata hai.", examTip: "Exams mein conceptually poocha jaata hai." }, { meaning: "Coordinate area formula.", shortcut: "Agar area zero ho, points collinear hain.", examTip: "Direct aur concept questions dono mein useful hai." }]
+      },
+      "permutation-combination": {
+        intro: "Permutation aur Combination arrangement aur selection logic test karta hai. Banking aur higher-level exams mein ye basic railway papers se zyada poochhte hain.",
+        memory: "P for position matters, C for choosing matters.",
+        concepts: ["Permutation matlab arrangement matter karta hai; combination matlab sirf selection.", "Factorial notation aur restrictions jaise repetition ya circular placement formulas change karte hain."],
+        shortcuts: ["Chote r ke liye nCr = nC(n-r) use karo.", "Repeated letters wale words ke liye, repeated factorials se divide karo.", "Jab log saath baithein pehle unhe ek block treat karo."],
+        examTricks: ["Pehle decide karo: arrangement ya selection? Ye akela aadha confusion solve kar deta hai.", "'Always together' ya 'never together' jaise restrictions ko case handling chahiye."],
+        mistakes: ["Combination ki jagah permutation use karna.", "Circular arrangement ke liye n! ki jagah (n-1)! use karna bhool jaana."],
+        patterns: ["Line ya circle mein letters, digits, ya persons arrange karo.", "Kisi group se committee ya team choose karo."],
+        formulas: [{ meaning: "P&C ki foundation hai.", shortcut: "Expand karne se pehle common factorial terms cancel karo.", examTip: "P&C mein har jagah use hota hai." }, { meaning: "Order matter karta hai.", shortcut: "n mein se r pick karo aur arrange karo.", examTip: "Direct arrangement questions hain." }, { meaning: "Order matter nahi karta.", shortcut: "Kaam kam karne ke liye nCr = nC(n-r) use karo.", examTip: "Selection questions is formula use karte hain." }, { meaning: "N distinct objects ko circle mein arrange karna.", shortcut: "Rotation duplicates remove karne ke liye ek position fix karo.", examTip: "Common conceptual question hai." }]
+      },
+      "probability": {
+        intro: "Competitive exams mein probability questions zyaadatar elementary hain: coins, dice, cards, bags, aur event complements.",
+        memory: "Probability chance out of total hai; complement hard counting ko easy subtraction mein badal deta hai.",
+        concepts: ["Probability 0 aur 1 ke beech hoti hai.", "Favorable outcomes ko total equally likely outcomes se divide karo basic probability milti hai."],
+        shortcuts: ["'At least one' ke liye 'none' ka complement use karo.", "Coin aur dice questions mein total outcomes powers hoti hain: 2^n ya 6^n.", "Sample space sirf bahut chote cases ke liye draw karo."],
+        examTricks: ["Card suits, face cards, red-black counts yaad hone chahiye.", "Without replacement har step mein total outcomes badal jaate hain."],
+        mistakes: ["Overlapping events ki probabilities subtract kiye bina add karna.", "Without-replacement cases mein independence galat use karna."],
+        patterns: ["Dice sum, coin outcomes, aur card drawing.", "At least one success ya exactly one success."],
+        formulas: [{ meaning: "Equally likely outcomes ke liye.", shortcut: "Calculate karne se pehle dhyan se count karo.", examTip: "Sabse common formula hai." }, { meaning: "Tab use karo jab direct counting mushkil ho.", shortcut: "'At least one' aksar 'none' ka complement ban jaata hai.", examTip: "Dice aur cards mein bahut common hai." }, { meaning: "Overlapping events ke liye.", shortcut: "Overlap ek baar subtract karo.", examTip: "Set-style event questions mein useful hai." }, { meaning: "Jab events independent hon.", shortcut: "Without replacement se sequential usually independent nahi hota.", examTip: "Concept-based exam favourite hai." }]
+      },
+      "data-interpretation": {
+        intro: "Data Interpretation tables, bar charts, pie charts, aur line graphs par percentage, ratio, average, aur comparison combine karta hai. Speed graph theory se zyada arithmetic par depend karti hai.",
+        memory: "DI arithmetic on data hai; graph padhna easy hai, calculation asli test hai.",
+        concepts: ["Pehle units padho: lakhs, thousands, percentages, crores, degrees.", "Approximation aur option elimination lambe chart sets mein time bachate hain."],
+        shortcuts: ["Round nearby values sirf tab karo jab options bahut door hon.", "Fractions ko percentage mein mentally convert karo: 1/8 = 12.5%, 1/5 = 20%.", "Jahan possible ho ratio questions pehle answer karo exact-value questions se."],
+        examTricks: ["Check karo ki data common division se simplify ho sakta hai khaaskar tables mein.", "Pie charts mein angles ko 360 ke fractions mein jaldi convert karo."],
+        mistakes: ["Rows ya years ke beech unit mismatch ignore karna.", "Percentage change mein new value ko base mein use karna."],
+        patterns: ["Profit, sales, production, population, aur marks table questions.", "Pie chart sector comparison aur percentage change."],
+        formulas: [{ meaning: "Base old value hai.", shortcut: "Sign increase ya decrease batata hai.", examTip: "Sabse baar-baar aane wala DI formula hai." }, { meaning: "Same units mein compare karne ke baad reduce karo.", shortcut: "Common factors jaldi cancel karo.", examTip: "Chart comparison mein common hai." }, { meaning: "Year-wise aur category-wise data mein use hota hai.", shortcut: "Reasonableness check ke liye pehle estimate karo.", examTip: "Banking sets mein frequent hai." }, { meaning: "Angle proportion quantity proportion deta hai.", shortcut: "Pie ka 10% = 36°.", examTip: "SSC aur Banking mein baar-baar aata hai." }]
+      },
+      "statistics": {
+        intro: "Competitive exams mein statistics mostly mean, median, mode, aur kabhi kabhi range ya frequency tables tak limited hai.",
+        memory: "Mean balance karta hai, median center karta hai, mode repeat karta hai.",
+        concepts: ["Mean arithmetic average hai; median middle value hai; mode sabse frequent value hai.", "Median nikalne se pehle data arrange karo."],
+        shortcuts: ["Evenly spaced data ke liye mean aksar middle term ke barabar hota hai.", "Agar sabhi values k se increase hon, mean, median, aur mode sab k se increase hote hain.", "Mode ko frequency count chahiye, size nahi."],
+        examTricks: ["Median questions mentally sort karne ke baad aksar easy ho jaate hain.", "Kuch bhi calculate karne se pehle repeated values check karo; kabhi kabhi mode hi kaafi hota hai."],
+        mistakes: ["Data arrange kiye bina median nikalna.", "Mean ko mode se confuse karna."],
+        patterns: ["Chote datasets par direct mean-median-mode questions.", "Diye gaye average se missing value nikalna."],
+        formulas: [{ meaning: "Arithmetic average.", shortcut: "Frequency table ke liye Sum(fx)/Sum(f) use karo.", examTip: "Sabse common statistics question hai." }, { meaning: "Data ordered hona chahiye.", shortcut: "Pehle sort karo phir center locate karo.", examTip: "Baar-baar direct concept hai." }, { meaning: "Highest frequency term.", shortcut: "Grouped data mein basic exams zyada deep nahi jaate.", examTip: "Easy theory-based question hai." }, { meaning: "Approximate relation hai.", shortcut: "Jab ek measure missing ho tab useful hai.", examTip: "Banking mein kabhi kabhi poocha jaata hai." }]
+      },
+      "logarithms": {
+        intro: "Logarithms basic papers mein hamesha frequent nahi hote, lekin jab poochhe jaate hain questions usually standard laws aur simple evaluation par based hote hain.",
+        memory: "Logs multiply ko add mein, divide ko subtract mein, powers ko front multipliers mein badal dete hain.",
+        concepts: ["Logarithm poochhat hai: base ko kis power tak raise karna hoga number milne ke liye?", "Log laws multiplication, division, aur powers ko simpler operations mein convert karte hain."],
+        shortcuts: ["Agar expression abstract lage toh exponential form mein convert karo.", "log_a a = 1 aur log_a 1 = 0 yaad karo.", "Agar bases match hon, arguments directly compare karo."],
+        examTricks: ["Log laws apply karne se pehle log ke andar number ki factorization dekho.", "Power law use karne ke baad bahut saare equations linear ho jaate hain."],
+        mistakes: ["Addition par log laws apply karna: log(x+y) ya log x + log y nahi hota.", "Base restrictions ignore karna."],
+        patterns: ["Simple log values evaluate karo aur log expressions simplify karo.", "Basic log equations solve karo."],
+        formulas: [{ meaning: "a > 0, a != 1, N > 0.", shortcut: "Pehle exponent form soch lo.", examTip: "Base concept question hai." }, { meaning: "Products aur ratios todo.", shortcut: "Multiplication addition ban jaata hai.", examTip: "Sabse zyada use hone wala log law hai." }, { meaning: "Power aage aao.", shortcut: "Simplification ke liye useful hai.", examTip: "Expression reduction mein common hai." }, { meaning: "Koi bhi convenient base c use kar sakte hain.", shortcut: "Aksar common log ya natural log symbolically use karo.", examTip: "Higher aptitude questions mein popular hai." }]
+      },
+      "mixture-allegation": {
+        intro: "Mixture aur Allegation liquids, metals, ya prices combine karne ke liye aptitude ka favourite chapter hai. Average price aur allegation logic clear ho toh ye fast hai.",
+        memory: "Mean beech mein baitha hai; allegation opposite differences use karta hai.",
+        concepts: ["Mixture ki mean value ek weighted average hai.", "Allegation cross-differences se cheaper aur dearer quantities ka ratio deta hai."],
+        shortcuts: ["Allegation tab use karo jab do prices ek mean price banate hon.", "Repeated replacement ke liye remaining original fraction multiplicative decay follow karta hai.", "Milk-water problems mein milk quantity alag track karo."],
+        examTricks: ["Agar sirf ratio poocha ho, allegation aksar equation solving se zyada fast hota hai.", "Price mixture aur concentration mixture same weighted-average logic use karte hain."],
+        mistakes: ["Weighted average ki jagah simple average lena.", "Allegation ratio galat order mein likhna."],
+        patterns: ["Ek target mean price banane ke liye do varieties mix karo.", "Milk mixture mein pani add ya remove karna."],
+        formulas: [{ meaning: "Components ke prices ka weighted average.", shortcut: "Total value soch lo, plain average nahi.", examTip: "Foundational formula hai." }, { meaning: "Cross-difference rule.", shortcut: "Outer minus middle, middle minus outer.", examTip: "SSC aur Banking mein bahut common hai." }, { meaning: "Water-milk replacement type questions mein useful hai.", shortcut: "Sirf dilute ho rahe component ko track karo.", examTip: "Baar-baar poocha jaane wala pattern hai." }, { meaning: "Milk-water, acid, metal purity par apply hota hai.", shortcut: "Pehle pure part calculate karo.", examTip: "Conceptual questions mein common hai." }]
+      },
+      "age": {
+        intro: "Age problems past, present, future, aur ratio relationships ke around framed linear equation questions hain. Statements cleanly translate ho jaayein toh ye aasaan hain.",
+        memory: "Age time ke saath equally chalti hai lekin ratio basta hai; difference same rehta hai.",
+        concepts: ["Present age base hai; x saal baad x add karo, x saal pehle x subtract karo.", "Age differences hamesha constant rehte hain."],
+        shortcuts: ["Pehle present ages represent karo phir past ya future mein jaao.", "Father-son problems mein age difference hamesha ke liye fixed rehta hai.", "Jab ratio time ke saath change ho, do time points par ratio equations likho."],
+        examTricks: ["Bahut saare age questions ratio aur age-difference combination se zyada fast solve hote hain.", "Check karo ki ek variable kaafi hai ya do assign karne padenge."],
+        mistakes: ["Age difference ko time ke saath change karna.", "'Years ago' ya 'after years' ke liye galat sign use karna."],
+        patterns: ["Father-son, brother-sister, aur present-past ratio questions.", "Ek member join ya leave karne se pehle aur baad ka average age."],
+        formulas: [{ meaning: "Har insaan ki age ke liye kaam karta hai.", shortcut: "Do ages ka difference hamesha constant rehta hai.", examTip: "Core age equation idea hai." }, { meaning: "Common multiplier k use karo.", shortcut: "Word ratio ko seedha algebra mein convert karo.", examTip: "Sabse common age pattern hai." }, { meaning: "Family problems mein useful hai.", shortcut: "Total age births, additions, removals ke saath change hoti hai.", examTip: "Average chapter ke saath aksar mixed aata hai." }, { meaning: "Age gap kabhi nahi badalti.", shortcut: "Is se bahut saare unnecessary variables eliminate ho jaate hain.", examTip: "Do-insaan ke age problems mein powerful hai." }]
+      }
+    };
+
+    const hinglishFastTricks = [
+      "5 se multiply karna: 2 se divide karo aur ek zero add karo.",
+      "25 se multiply karna: 4 se divide karo aur do zero add karo.",
+      "125 se multiply karna: 8 se divide karo aur teen zero add karo.",
+      "10% nikalna: decimal ek jagah left shift karo.",
+      "1% nikalna: decimal do jagah left shift karo.",
+      "12.5% matlab 8 se divide karo.",
+      "16 2/3% matlab 6 se divide karo.",
+      "33 1/3% matlab 3 se divide karo.",
+      "66 2/3% matlab 2/3 se multiply karo.",
+      "75% matlab 3/4 se multiply karo.",
+      "20% increase matlab 1.2 se multiply karo.",
+      "20% decrease matlab 0.8 se multiply karo.",
+      "Successive percentage mein a + b + ab/100 signs ke saath use karo.",
+      "Equal distances ke liye average speed harmonic mean hoti hai, simple mean nahi.",
+      "Agar ratio m:n hai aur total T hai, ek part = T/(m+n).",
+      "Ages ratio mein hon toh mk aur nk use karo, random variables nahi.",
+      "HCF-LCM questions mein prime factors se start karo.",
+      "Unit digit problems: exponent ko cycle length se reduce karo.",
+      "Remainder problems: pehle base ko divisor se modulo karo.",
+      "11 se divisibility: alternating digit sum test.",
+      "50 ke aas paas ke square ke liye (50+d)^2 = 2500 + 100d + d^2.",
+      "100 ke aas paas ke square ke liye (100+d)^2 = 10000 + 200d + d^2.",
+      "Squares ka difference: a^2 - b^2 = (a-b)(a+b).",
+      "Agar ek worker double efficient ho, time aadha ho jaata hai.",
+      "Pipe questions mein: inlet positive, outlet negative.",
+      "Boat-stream mein: still water = (down + up)/2.",
+      "Boat-stream mein: stream = (down - up)/2.",
+      "Train pole cross kare: sirf train ki length matter karti hai.",
+      "Circle diameter = 2r; radius-diameter mix-up se bacho.",
+      "Agar radius double ho, circle area 4 times ho jaati hai.",
+      "Agar dimension double ho, cube volume 8 times ho jaata hai.",
+      "'At least one' probability ke liye complement use karo.",
+      "nCr = nC(n-r); chota r choose karo.",
+      "log_a a = 1 aur log_a 1 = 0.",
+      "Sin values 0° se 90° tak: sqrt(0/4), sqrt(1/4), sqrt(2/4), sqrt(3/4), sqrt(4/4).",
+      "Cos values sin values ki reverse hain.",
+      "tan45 = 1, tan30 = 1/sqrt(3), tan60 = sqrt(3).",
+      "Median ke liye pehle data sort karna zaroori hai.",
+      "Mode sabse frequent value hai, sabse badi nahi.",
+      "Weighted average matlab total weighted value divided by total weight.",
+      "Alligation ratio opposite differences use karta hai.",
+      "Cyclic quadrilateral mein opposite angles ki sum 180° hoti hai.",
+      "Triangle mein exterior angle andar ke do opposite angles ke sum ke barabar hota hai.",
+      "Internal division midpoint ke liye ratio 1:1 hota hai.",
+      "Simple interest linear rehta hai; compound interest period-by-period badhta hai.",
+      "2 saalon ke liye SI aur CI ka fark = P(R/100)^2.",
+      "km/h ko m/s mein convert karne ke liye 5/18 se multiply karo.",
+      "m/s ko km/h mein convert karne ke liye 18/5 se multiply karo.",
+      "Average replacement mein average change = item change / count.",
+      "Jab full arithmetic lambi ho, options aur approximation use karo."
+    ];
+
+    const hinglishLastDayBlocks = [
+      { title: "Pehle Arithmetic", items: ["Percentage, Ratio, Profit & Loss, SI, CI, Time & Work, Time-Speed-Distance revise karo.", "Sabhi quick percent fractions yaad karo: 12.5%, 16 2/3%, 20%, 25%, 33 1/3%, 40%, 50%, 75%."] },
+      { title: "Tables aur Conversion", items: ["30 tak ke squares perfectly memorize karo aur 100 tak familiar raho.", "18/5 aur 5/18 speed conversion, pi formulas, aur common fraction-percentage links revise karo."] },
+      { title: "Formula Revision", items: ["Top 100 Formulas ek baar start se end tak bina solve kiye padho.", "Sirf wahi formulas revisit karo jo abhi bhi sochna pad raha hai; automatic recall instant hona chahiye."] },
+      { title: "Pattern Revision", items: ["Remainder, unit digit, partnership, trains, boats, aur mensuration par ek-ek question practice karo.", "Common traps par khaas dhyan do: galat base, galat unit, galat sign."] },
+      { title: "Exam Hall Strategy", items: ["Direct-formula aur direct-percentage questions pehle attempt karo.", "Agar basic arithmetic abhi bhi pending hai toh lambe DI ya trigonometry skip karo."] },
+      { title: "Accuracy Check", items: ["Dobara check karo ki answer original value se bada hona chahiye ya chota.", "Options mein exactly calculate karne se pehle impossible values eliminate karo."] }
+    ];
+
+    const hinglishUltraFastRevision = [
+      "Number System: HCF x LCM = do numbers ka product; remainders cycles follow karte hain.",
+      "Simplification: Pehle BODMAS; conjugates se surds rationalize karo.",
+      "Percentage: x% of y = y% of x; successive change = a + b + ab/100 signs ke saath.",
+      "Ratio: total share = total x part / parts ka sum; partnership capital x time use karta hai.",
+      "Average: total = average x count; replacement se average difference/count se change hota hai.",
+      "Profit & Loss: profit-loss CP par, discount MP par, successive discounts multiply karte hain.",
+      "Simple Interest: SI = PRT/100.",
+      "Compound Interest: A = P(1 + R/100)^n.",
+      "Time & Work: work rate = 1/time; saath mein rates add karo.",
+      "Pipe & Cistern: inlet positive, outlet negative.",
+      "Time-Speed-Distance: D = ST; equal-distance average speed = 2xy/(x+y).",
+      "Trains: time = total length / relative speed.",
+      "Boat & Stream: boat = (D+U)/2, stream = (D-U)/2.",
+      "Mensuration 2D: area formulas automatic hone chahiye.",
+      "Mensuration 3D: volume cubic hota hai, surface area square.",
+      "Algebra: identities aur quadratic roots formula yaad karo.",
+      "Geometry: tangent-radius 90°, center angle = circumference angle ka double.",
+      "Trigonometry: standard values + identities.",
+      "Coordinate Geometry: distance, midpoint, section, triangle area.",
+      "P&C: nPr arrangement, nCr selection.",
+      "Probability: favorable/total; at least one ke liye complement use karo.",
+      "DI: pehle units padho phir percentage aur average use karo.",
+      "Statistics: mean, median, mode aur median ke liye sorting.",
+      "Logarithms: multiply-add, divide-subtract, power aage aata hai.",
+      "Mixture & Allegation: cross-difference ratio.",
+      "Age: difference constant, ratios time ke saath change hote hain."
+    ];
+
+    const hinglishExamZones = [
+      { title: "SSC CGL Mein Sabse Zyada Aane Wale Formulas", items: ["Percentage change, successive percentage, aur reverse percentage.", "Profit-loss-discount chain aur marked price formulas.", "Time & Work combined rate aur efficiency inverse ratio.", "Train, boat, aur relative speed formulas.", "Circle, triangle, trapezium, cylinder, cone, sphere formulas.", "Trigonometric standard values aur basic identities."] },
+      { title: "Railway Mein Sabse Zyada Aane Wale Formulas", items: ["Unit digit, remainder, HCF-LCM, aur divisibility tests.", "Simple percentage, average, ratio, aur partnership formulas.", "Train crossing formulas aur speed conversion.", "Mensuration 2D aur 3D direct formulas.", "Simple Interest aur Profit & Loss direct applications.", "Time & Work aur Pipe & Cistern net-rate formulas."] },
+      { title: "Banking Aptitude Ke Formulas", items: ["Percentage, DI percentage change, average, aur ratio comparisons.", "Simple aur Compound Interest, khaaskar annual aur half-yearly CI.", "Mixture aur allegation, weighted averages, aur partnership.", "Permutation-combination aur probability basics.", "Quadratic roots, identities, aur approximation logic.", "Data interpretation speed formulas aur pie-chart conversion."] }
+    ];
+
     const fastTricks = [
       "Multiply by 5: divide by 2 and add a zero.",
       "Multiply by 25: divide by 4 and add two zeros.",
@@ -2477,6 +2917,22 @@
     function renderTopic(topic) {
       const t = uiText[currentLang];
       const hinglishNote = hinglishTopicNotes[topic.id] || "Is topic ko formula + shortcut + pattern ke through samjho. Pehle concept clear karo, phir speed build karo.";
+      const hd = (currentLang === "hinglish" && hinglishData[topic.id]) ? hinglishData[topic.id] : null;
+      const c = hd ? {
+        intro: hd.intro,
+        memory: hd.memory,
+        concepts: hd.concepts,
+        shortcuts: hd.shortcuts,
+        examTricks: hd.examTricks,
+        mistakes: hd.mistakes,
+        patterns: hd.patterns,
+        formulas: topic.formulas.map((f, i) => ({
+          ...f,
+          meaning: (hd.formulas && hd.formulas[i]) ? hd.formulas[i].meaning : f.meaning,
+          shortcut: (hd.formulas && hd.formulas[i]) ? hd.formulas[i].shortcut : f.shortcut,
+          examTip: (hd.formulas && hd.formulas[i]) ? hd.formulas[i].examTip : f.examTip
+        }))
+      } : topic;
       const detail = document.createElement("details");
       detail.className = `topic-panel searchable ${topic.theme}`;
       detail.id = topic.id;
@@ -2490,7 +2946,7 @@
           <div class="topic-head">
             <div>
               <h4>${topic.letter}. ${topic.title}</h4>
-              <p>${topic.intro}</p>
+              <p>${c.intro}</p>
             </div>
             <div class="topic-badges">
               <span class="badge">Level: ${topic.level}</span>
@@ -2500,10 +2956,10 @@
         </summary>
         <div class="topic-body">
           <div class="topic-meta">
-            <div class="meta-box"><strong>${t.topicIntro}</strong><span>${topic.intro}</span></div>
+            <div class="meta-box"><strong>${t.topicIntro}</strong><span>${c.intro}</span></div>
             <div class="meta-box"><strong>${t.difficultyLevel}</strong><span>${topic.level}</span></div>
             <div class="meta-box"><strong>${t.expectedWeightage}</strong><span>${topic.weightage}</span></div>
-            <div class="meta-box"><strong>${t.memoryHook}</strong><span>${topic.memory}</span></div>
+            <div class="meta-box"><strong>${t.memoryHook}</strong><span>${c.memory}</span></div>
           </div>
 
           ${currentLang === "hinglish" ? `<div class="hinglish-note"><strong>${t.hinglishLabel}:</strong> ${hinglishNote}</div>` : ""}
@@ -2511,24 +2967,24 @@
           <div class="mini-grid">
             <div class="tip-card">
               <h5>${t.importantConcepts}</h5>
-              <ul class="quick-list">${topic.concepts.map(item => `<li>${item}</li>`).join("")}</ul>
+              <ul class="quick-list">${c.concepts.map(item => `<li>${item}</li>`).join("")}</ul>
             </div>
             <div class="tip-card">
               <h5>${t.shortcutTricks}</h5>
-              <ul class="quick-list">${topic.shortcuts.map(item => `<li>${item}</li>`).join("")}</ul>
+              <ul class="quick-list">${c.shortcuts.map(item => `<li>${item}</li>`).join("")}</ul>
             </div>
             <div class="tip-card">
               <h5>${t.examTricks}</h5>
-              <ul class="quick-list">${topic.examTricks.map(item => `<li>${item}</li>`).join("")}</ul>
+              <ul class="quick-list">${c.examTricks.map(item => `<li>${item}</li>`).join("")}</ul>
             </div>
             <div class="warn-card">
               <h5>${t.commonMistakes}</h5>
-              <ul class="quick-list">${topic.mistakes.map(item => `<li>${item}</li>`).join("")}</ul>
+              <ul class="quick-list">${c.mistakes.map(item => `<li>${item}</li>`).join("")}</ul>
             </div>
           </div>
 
           <div class="formula-grid">
-            ${topic.formulas.map(formula => `
+            ${c.formulas.map(formula => `
               <article class="formula-card">
                 <h5>${formula.title}</h5>
                 <span class="formula-label">${t.formula}</span>
@@ -2543,11 +2999,11 @@
           <div class="mini-grid">
             <div class="tip-card">
               <h5>${t.memoryTrick}</h5>
-              <p>${topic.memory}</p>
+              <p>${c.memory}</p>
             </div>
             <div class="warn-card">
               <h5>${t.patterns}</h5>
-              <ul class="quick-list">${topic.patterns.map(item => `<li>${item}</li>`).join("")}</ul>
+              <ul class="quick-list">${c.patterns.map(item => `<li>${item}</li>`).join("")}</ul>
             </div>
           </div>
 
@@ -2581,13 +3037,16 @@
       const t = uiText[currentLang];
       const topFormulaGrid = document.getElementById("topFormulaGrid");
       topFormulaGrid.innerHTML = "";
-      const formulas = topics.flatMap(topic => topic.formulas.map(f => ({
-        title: `${topic.title}: ${f.title}`,
-        formula: f.formula,
-        meaning: f.meaning,
-        shortcut: f.shortcut,
-        examTip: f.examTip
-      }))).slice(0, 100);
+      const formulas = topics.flatMap(topic => {
+        const hd = (currentLang === "hinglish" && hinglishData[topic.id]) ? hinglishData[topic.id] : null;
+        return topic.formulas.map((f, i) => ({
+          title: `${topic.title}: ${f.title}`,
+          formula: f.formula,
+          meaning: (hd && hd.formulas && hd.formulas[i]) ? hd.formulas[i].meaning : f.meaning,
+          shortcut: (hd && hd.formulas && hd.formulas[i]) ? hd.formulas[i].shortcut : f.shortcut,
+          examTip: (hd && hd.formulas && hd.formulas[i]) ? hd.formulas[i].examTip : f.examTip
+        }));
+      }).slice(0, 100);
 
       formulas.forEach((formula, index) => {
         const card = document.createElement("article");
@@ -2607,7 +3066,8 @@
     function renderFastTricks() {
       const grid = document.getElementById("fastTrickGrid");
       grid.innerHTML = "";
-      fastTricks.forEach((item, index) => {
+      const tricks = currentLang === "hinglish" ? hinglishFastTricks : fastTricks;
+      tricks.forEach((item, index) => {
         const card = document.createElement("article");
         card.className = "summary-card";
         card.innerHTML = `<h4>⚡ Trick ${index + 1}</h4><p>${item}</p>`;
@@ -2620,7 +3080,8 @@
       card.className = "table-card";
       const thead = `<tr>${headers.map(h => `<th>${h}</th>`).join("")}</tr>`;
       const tbody = rows.map(row => `<tr>${row.map(cell => `<td>${cell}</td>`).join("")}</tr>`).join("");
-      card.innerHTML = `<h4>${title}</h4><div class="muted">Memorize for speed and approximation.</div><table><thead>${thead}</thead><tbody>${tbody}</tbody></table>`;
+      const tableNote = currentLang === "hinglish" ? "Speed aur approximation ke liye yaad karo." : "Memorize for speed and approximation.";
+      card.innerHTML = `<h4>${title}</h4><div class="muted">${tableNote}</div><table><thead>${thead}</thead><tbody>${tbody}</tbody></table>`;
       return card;
     }
 
@@ -2666,7 +3127,8 @@
     function renderLastDay() {
       const grid = document.getElementById("lastDayGrid");
       grid.innerHTML = "";
-      lastDayBlocks.forEach(block => {
+      const blocks = currentLang === "hinglish" ? hinglishLastDayBlocks : lastDayBlocks;
+      blocks.forEach(block => {
         const card = document.createElement("article");
         card.className = "summary-card";
         card.innerHTML = `<h4>${block.title}</h4><ul>${block.items.map(item => `<li>${item}</li>`).join("")}</ul>`;
@@ -2677,7 +3139,8 @@
     function renderUltraFast() {
       const list = document.getElementById("ultraFastList");
       list.innerHTML = "";
-      ultraFastRevision.forEach(item => {
+      const items = currentLang === "hinglish" ? hinglishUltraFastRevision : ultraFastRevision;
+      items.forEach(item => {
         const li = document.createElement("li");
         li.textContent = item;
         list.appendChild(li);
@@ -2687,7 +3150,8 @@
     function renderExamZones() {
       const grid = document.getElementById("examZoneGrid");
       grid.innerHTML = "";
-      examZones.forEach(zone => {
+      const zones = currentLang === "hinglish" ? hinglishExamZones : examZones;
+      zones.forEach(zone => {
         const card = document.createElement("article");
         card.className = "summary-card";
         card.innerHTML = `<h4>${zone.title}</h4><ul>${zone.items.map(item => `<li>${item}</li>`).join("")}</ul>`;
@@ -2706,6 +3170,43 @@
       const expandButton = document.getElementById("expandAll");
       themeButton.textContent = document.body.classList.contains("dark") ? t.lightMode : t.darkMode;
       expandButton.textContent = expandButton.dataset.expanded === "true" ? t.collapseAll : t.expandAll;
+
+      const secMap = {
+        "top-formulas": ["sec_topFormulas", "sec_topFormulasDesc"],
+        "fast-tricks": ["sec_fastTricks", "sec_fastTricksDesc"],
+        "memorize": ["sec_memorize", "sec_memorizeDesc"],
+        "last-day": ["sec_lastDay", "sec_lastDayDesc"],
+        "ultra-fast": ["sec_ultraFast", "sec_ultraFastDesc"],
+        "exam-zones": ["sec_examZones", "sec_examZonesDesc"],
+        "topics": ["sec_allTopics", "sec_allTopicsDesc"]
+      };
+      Object.entries(secMap).forEach(([id, [titleKey, descKey]]) => {
+        const sec = document.getElementById(id);
+        if (!sec) return;
+        const h3 = sec.querySelector(".section-header h3");
+        const p = sec.querySelector(".section-header p");
+        if (h3) h3.textContent = t[titleKey];
+        if (p) p.textContent = t[descKey];
+      });
+
+      const statCards = document.querySelectorAll(".stat-card");
+      const statKeys = [["stat_highYield","stat_highYieldVal"],["stat_pattern","stat_patternVal"],["stat_strategy","stat_strategyVal"],["stat_lastMin","stat_lastMinVal"]];
+      statCards.forEach((card, i) => {
+        if (statKeys[i]) {
+          const strong = card.querySelector("strong");
+          const span = card.querySelector("span");
+          if (strong) strong.textContent = t[statKeys[i][0]];
+          if (span) span.textContent = t[statKeys[i][1]];
+        }
+      });
+
+      const footer = document.querySelector(".footer-note");
+      if (footer) {
+        const strong = footer.querySelector("strong");
+        const p = footer.querySelector("p");
+        if (strong) strong.textContent = t.footerLabel + ":";
+        if (p) p.textContent = t.footerNote;
+      }
     }
 
     function renderAllDynamicContent() {
